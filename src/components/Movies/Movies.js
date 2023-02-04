@@ -1,9 +1,10 @@
 import React from "react";
+import Card from '../Card/Card'
 import './Movies.css'
 
 const Movies = ({movies}) => {
-
   const movieCards = movies.map(movie => {
+    console.log('movies = ', movies)
     return (
       <Card
         id={movie.id}
