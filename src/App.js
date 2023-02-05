@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
+import getAllData from './API Calls'
 import movieData from './FakeData'
 import Movies from './components/Movies/Movies';
-import {Route, Switch, Redirect} from 'react-router-dom'
-import Header from './components/Header/Header'
+import Movie from './components/Movie/Movie';
+
+// import {Route, Switch, Redirect} from 'react-router-dom'
+// import { BrowserRouter } from 'react-router-dom';
+// import Header from './components/Header/Header'
 // import Card from './components/Card/Card';
 import './App.css';
+
+const setEventHandler = true
 
 class App extends Component {
   constructor() {
@@ -18,22 +24,14 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.setState({ movies: movieData.movies})
+    getAllData()
+    .then((data) => this.setState({ movies: data}))
+    .catch((error) => console.log(error))
   }
 
-  handleClick = () => {
-
+  componentDidUpdate =() => {
+    console.log(this.state)
   }
-
-  // shouldComponentUpdate = (singleMovie) => {
-  //   if(this.onclick.value === true){
-  //     return true
-  //   }
-  //   else{
-  //     return false
-  //   }
-  // }
-
 
   showSingleMovie = (id) => {
     const findMovie = this.state.movies.find(movie => movie.id === id)
@@ -46,18 +44,30 @@ class App extends Component {
   }
 
   render() {
+    // if (onClick.value === true) {
+    // return (
+    //   <main className="moviePoster">
+    //     <Movie showSingleMovie={this.showSingleMovie} />
+    //     <div>
+    //       <p>Title</p>
+    //       <p>Rating</p>
+    //       <p>Release Date</p>
+    //     </div>
+    //   </main>
+    // )} else {
     return (
-      <main className="App">
-        <switch>
+        <main className="App">
+        {/* <switch>
           <Redirect exact from="/" to="/movies" />
           <Route exact path="/movies" render={() => <Header/>}/>
-        </switch>
+        </switch> */}
         {/* <Header/> */}
         {/* <div addMovie={this.addMovie}></div> */}
         <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} />
+        {/* {setEventHandler ? this.showSingleMovie() : <Movies />} */}
       </main>
-    )
+    )}
   }
-}
+// }
 
 export default App;
