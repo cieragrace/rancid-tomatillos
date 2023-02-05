@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import getAllData from './API Calls'
-import movieData from './FakeData'
+import getAPIData from './APICalls.js'
+// import movieData from './FakeData'
 import Movies from './components/Movies/Movies';
-import Movie from './components/Movie/Movie';
-
+import Movie from './components/MovieInfo/MovieInfo';
+import './App.css';
 // import {Route, Switch, Redirect} from 'react-router-dom'
 // import { BrowserRouter } from 'react-router-dom';
 // import Header from './components/Header/Header'
 // import Card from './components/Card/Card';
-import './App.css';
 
-const setEventHandler = true
+
+// const setEventHandler = true
 
 class App extends Component {
   constructor() {
@@ -18,56 +18,50 @@ class App extends Component {
     // this.movieData = movieData
     this.state = {
       singleMovie: null,
-      movies: []
+      movies: [],
+      isClicked: false
     }
     this.showSingleMovie = this.showSingleMovie.bind(this)
   }
 
   componentDidMount = () => {
-    getAllData()
-    .then((data) => this.setState({ movies: data}))
+    getAPIData('movies')
+    .then((data) => this.setState({ movies: data.movies }))
     .catch((error) => console.log(error))
   }
 
   componentDidUpdate =() => {
-    console.log(this.state)
+    console.log("New State:", this.state)
   }
 
   showSingleMovie = (id) => {
     const findMovie = this.state.movies.find(movie => movie.id === id)
-    console.log('movie = ', findMovie)
-    this.setState(prevState => {
-      return {
-        singleMovie: findMovie
-      }
+    getAPIData(`movies/${findMovie.id}`)
+    .then((data) => {
+      this.setState({
+          singleMovie: data.movie,
+          isClicked: true
+      })
+      console.log("Fetch Single Movie:", data)
     })
   }
 
+  backToHome = () => {
+    console.log("State:", this.state)
+    this.setState({ isClicked: false })
+  }
+
   render() {
-    // if (onClick.value === true) {
-    // return (
-    //   <main className="moviePoster">
-    //     <Movie showSingleMovie={this.showSingleMovie} />
-    //     <div>
-    //       <p>Title</p>
-    //       <p>Rating</p>
-    //       <p>Release Date</p>
-    //     </div>
-    //   </main>
-    // )} else {
+    if (this.state.isClicked === true) {
+      console.log("I was clicked")
     return (
-        <main className="App">
-        {/* <switch>
-          <Redirect exact from="/" to="/movies" />
-          <Route exact path="/movies" render={() => <Header/>}/>
-        </switch> */}
-        {/* <Header/> */}
-        {/* <div addMovie={this.addMovie}></div> */}
+        <Movie showSingleMovie={this.showSingleMovie} singleMovie={this.state.singleMovie} backToHome={this.backToHome} />
+    )} else {
+      console.log("No clicky")
+    return (
         <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} />
-        {/* {setEventHandler ? this.showSingleMovie() : <Movies />} */}
-      </main>
     )}
   }
-// }
+}
 
 export default App;

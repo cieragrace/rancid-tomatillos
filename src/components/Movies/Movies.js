@@ -1,5 +1,6 @@
 import React from "react";
-import Card from '../Card/Card'
+import Movie from "../MovieInfo/MovieInfo";
+import Card from '../Movie/Movie'
 import './Movies.css'
 
 const Movies = ({movies, showSingleMovie}) => {
