@@ -47,8 +47,10 @@ class App extends Component {
   }
 
   backToHome = () => {
-    console.log("State:", this.state)
-    this.setState({ isClicked: false })
+    this.setState({ 
+      isClicked: false,
+      singleMovie: null
+     })
   }
 
   render() {
