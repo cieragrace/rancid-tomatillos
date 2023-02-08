@@ -14,6 +14,15 @@ describe('Main Page', () => {
       cy.get('.logoPic')
         .should('have.attr','src','../images/Tomatillo Logo.png')
     })
+    it('Should have a search bar', () => {
+        cy.get('#findMovie').should('be.visible')
+      })
+
+    // it('should have movies', () => {
+    //     cy.get('.movies')
+    //       .find('.movies')
+    //       .should('have.length', 40)
+    // })
 
 
     
