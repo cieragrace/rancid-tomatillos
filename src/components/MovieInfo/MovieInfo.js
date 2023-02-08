@@ -1,13 +1,34 @@
-import React from "react";
+import { render } from "@testing-library/react";
+import React, { Component } from "react";
 import App from "../../App";
 import Card from '../Movie/Movie'
+import getAPIData from "../../APICalls";
 import './MovieInfo.css'
 
-// const Movie = ({singleMovie, showSingleMovie}) => {
-const Movie = (props) => {
-  const { title, id, key, poster_path, backdrop_path, averageRating, release_date, overview, genres, budget, revenue, runtime, tagline, } = props.singleMovie
-  console.log("Props:", props)
-  // const movieCard = props.singleMovie.map(movie => {
+
+class Movie extends Component { 
+  constructor(props){
+    super(props)
+    this.state={
+      singleMovie: {}
+      // isClicked: false
+    }
+  }
+  
+  componentDidMount () {
+    console.log('what is props = ',this.props)
+    getAPIData(`movies/${this.props.movieId}`)
+      // .then(res=> res.json())
+      .then(data => {
+        this.setState({
+        singleMovie: data.movie,
+        // isClicked: true    
+        })
+      })
+          
+  }
+    render(){
+    const { title, poster_path, runtime, release_date, overview, genres, tagline } = this.state.singleMovie
     return (
       <div className="movieContainer">
         <img src={poster_path} alt="Movie Poster" width="1000" height="1200"></img>
@@ -19,10 +40,11 @@ const Movie = (props) => {
           <h2>Genre: {genres}</h2>
           <h2>Duration: {runtime} mins</h2>
           <h2>{tagline}</h2>
-          <button className="homeButton" onClick={() => props.backToHome()}>Back To Home</button>
+          <button className="homeButton" >Back To Home</button>
         </div>
       </div>
-    )
+    )}
+    
 }
 
 export default Movie
