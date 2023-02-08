@@ -10,10 +10,10 @@ describe('Main Page', () => {
           .should('have.text', 'Find A Movie:')
     })
 
-    // it('Should see the title of the application', () => {
-    //   cy.get('.logoPic')
-    //     .should('have.attr','src','../images/Tomatillo Logo.png')
-    // })
+    it('Should see the title of the application', () => {
+      cy.get('.logoPic')
+        .should('have.attr','src','../images/Tomatillo Logo.png')
+    })
 
 
     
