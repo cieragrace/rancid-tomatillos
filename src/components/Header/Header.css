@@ -1,0 +1,41 @@
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* align-content: center; */
+  justify-content: center;
+  height: 460px;
+  width: 100vw;
+  background-color: black;
+  padding-bottom: 20px;
+  margin: 0;
+  padding: 0;
+  /* padding-right: 400px; */
+}
+
+.logoPic {
+  width: 100vw;
+  height: 400px;
+  background-image: url('../images/logo5.png');
+  background-size: contain;
+  opacity: 80%;
+  background-repeat: no-repeat;
+  border: 20px solid black;
+  border-radius: 40px;
+  
+}
+
+label {
+  color: #744C20;
+  font-size: 30px;
+  height: 35px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+input {
+  width: 750px;
+  height: 35px;
+  margin-bottom: 15px;
+  text-align: center;
+}
