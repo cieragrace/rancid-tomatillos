@@ -4,7 +4,7 @@ import Movies from './components/Movies/Movies';
 import Movie from './components/MovieInfo/MovieInfo';
 import { Route } from 'react-router-dom'
 import './App.css';
-// import Header from './components/Header/Header'
+import Header from './components/Header/Header'
 // import Card from './components/Card/Card';
 
 
@@ -56,6 +56,7 @@ export default class App extends Component {
     console.log('movies',this.state.movies)
     return(
         <main>
+          <Header />
           <Route exact path='/' render={()=> <Movies movies={this.state.movies}/>}></Route> 
           <Route exact path='/:id' render={({match})=> <Movie movieId={match.params.id} />
             } 
