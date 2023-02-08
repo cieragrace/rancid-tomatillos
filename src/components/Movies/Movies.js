@@ -3,7 +3,7 @@ import Movie from "../MovieInfo/MovieInfo";
 import Card from '../Movie/Movie'
 import './Movies.css'
 
-const Movies = ({movies, showSingleMovie}) => {
+const Movies = ({movies}) => {
   const movieCards = movies.map(movie => {
     return (
       <Card
@@ -14,7 +14,7 @@ const Movies = ({movies, showSingleMovie}) => {
         title={movie.title}
         averageRating={movie.averageRating}
         releaseDate={movie.release_date}
-        showSingleMovie={showSingleMovie}
+        // showSingleMovie={showSingleMovie}
       />
     )
   })
