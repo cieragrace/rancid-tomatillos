@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 import getAPIData from './APICalls.js'
-// import movieData from './FakeData'
 import Movies from './components/Movies/Movies';
 import Movie from './components/MovieInfo/MovieInfo';
+import { Route, Switch } from 'react-router-dom'
 import './App.css';
-// import {Route, Switch, Redirect} from 'react-router-dom'
-// import { BrowserRouter } from 'react-router-dom';
 // import Header from './components/Header/Header'
 // import Card from './components/Card/Card';
 
 
 // const setEventHandler = true
 
-class App extends Component {
+export default class App extends Component {
   constructor() {
     super()
     // this.movieData = movieData
@@ -21,7 +19,7 @@ class App extends Component {
       movies: [],
       isClicked: false
     }
-    this.showSingleMovie = this.showSingleMovie.bind(this)
+    // this.showSingleMovie = this.showSingleMovie.bind(this)
   }
 
   componentDidMount = () => {
@@ -34,17 +32,17 @@ class App extends Component {
     console.log("New State:", this.state)
   }
 
-  showSingleMovie = (id) => {
-    const findMovie = this.state.movies.find(movie => movie.id === id)
-    getAPIData(`movies/${findMovie.id}`)
-    .then((data) => {
-      this.setState({
-          singleMovie: data.movie,
-          isClicked: true
-      })
-      console.log("Fetch Single Movie:", data)
-    })
-  }
+  // showSingleMovie = (id) => {
+  //   const findMovie = this.state.movies.find(movie => movie.id === id)
+  //   getAPIData(`movies/${findMovie.id}`)
+  //   .then((data) => {
+  //     this.setState({
+  //         singleMovie: data.movie,
+  //         isClicked: true
+  //     })
+  //     console.log("Fetch Single Movie:", data)
+  //   })
+  // }
 
   backToHome = () => {
     this.setState({ 
@@ -53,17 +51,32 @@ class App extends Component {
      })
   }
 
+ 
   render() {
-    if (this.state.isClicked === true) {
-      console.log("I was clicked")
-    return (
-        <Movie showSingleMovie={this.showSingleMovie} singleMovie={this.state.singleMovie} backToHome={this.backToHome} />
-    )} else {
-      console.log("No clicky")
-    return (
-        <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} />
-    )}
+    console.log('movies',this.state.movies)
+    return(
+        <main>
+          <Switch>
+            <Route exact path='/' render={()=> <Movies movies={this.state.movies}/>}></Route>
+            {/* <Route exact path='/' Component={ Movies} ></Route> */}
+          </Switch>
+          
+          {/* <Route exact path='/movie' component={Movie}></Route> */}
+        </main>
+    )
   }
+
+  // render() {
+  //   if (this.state.isClicked === true) {
+  //     console.log("I was clicked")
+  //   return (
+  //       <Movie showSingleMovie={this.showSingleMovie} singleMovie={this.state.singleMovie} backToHome={this.backToHome} />
+  //   )} else {
+  //     console.log("No clicky")
+  //   return (
+  //       <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} />
+  //   )}
+  // }
 }
 
-export default App;
+
