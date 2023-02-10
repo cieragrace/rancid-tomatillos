@@ -1,6 +1,7 @@
 import React from "react";
 import Movie from "../MovieInfo/MovieInfo";
 import Card from '../Movie/Movie'
+import Header from '../Header/Header'
 import './Movies.css'
 
 const Movies = ({movies}) => {
@@ -20,9 +21,12 @@ const Movies = ({movies}) => {
   })
 
   return (
-    <div className="movie-container">
-      {movieCards}
-    </div>
+    <>
+      <Header />
+      <div className="movie-container">
+        {movieCards}
+      </div>
+    </>
   )
 }
 

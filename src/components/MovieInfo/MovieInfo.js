@@ -35,7 +35,7 @@ class Movie extends Component {
       <div className="movieContainer">
         <img className="moviePic" src={poster_path} alt="Movie-Poster"></img>
         <div className="movieInfo">
-          <h1 className='title'>WOW {title}</h1>
+          <h1 className='title'>{title}</h1>
           <ul>
           {/* <h2>Avg Rating: {averageRating}</h2> */}
             <h2 className='sum'>{overview}</h2>
