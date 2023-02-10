@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from 'react-router-dom'
+import './NotFound.css'
 
 
 const NotFound = () => {
     return (
-        <div>
+        <div className="errorPage">
+            {/* <div className="oops"></div> */}
             <h1>Oops! You seem to be lost.</h1>
-            <p>Here are some helpful links:</p>
+            <p>This link will take you back home:</p>
             <Link to='/'>Home</Link>
         </div>
     )

@@ -3,9 +3,9 @@ import getAPIData from './APICalls.js'
 import Movies from './components/Movies/Movies';
 import Movie from './components/MovieInfo/MovieInfo';
 import { Route, Switch } from 'react-router-dom'
-import { BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
+// import { BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import './App.css';
-import NotFound from './components/NotFound.js';
+import NotFound from './components/NotFound/NotFound.js';
 
 
 
@@ -45,7 +45,7 @@ export default class App extends Component {
             <Route exact path='/:id' render={({match})=> <Movie movieId={match.params.id} />
               } 
             ></Route>
-            <Route path="*" Component={NotFound} />
+            <Route path="*"><NotFound /></Route>
           </Switch>
         </main>
     )

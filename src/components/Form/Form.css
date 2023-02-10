@@ -1,0 +1,10 @@
+.formContainer {
+  background-color: black;
+  padding-left: 520px;
+}
+
+.searchButton {
+  width: 150px;
+  height: 40px;
+  background-color: #744C20;
+}
