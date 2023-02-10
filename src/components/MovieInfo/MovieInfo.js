@@ -45,11 +45,14 @@ class Movie extends Component {
             <li>{genres}</li>
           <h3>Duration:</h3>
             <li> {runtime} mins</li>
-            <li>{tagline}</li>
+            <h2>{tagline}</h2>
           </ul>
-          <NavLink>
-            <button className="homeButton" >Back To Home</button>
+          <NavLink to={'/'} text="Back to Home" className="homeButton">
+            <p>Back to Home</p>
           </NavLink>
+          
+            {/* <button className="homeButton" >Back To Home</button> */}
+          {/* </NavLink> */}
         </div>
       </div>
     )}
