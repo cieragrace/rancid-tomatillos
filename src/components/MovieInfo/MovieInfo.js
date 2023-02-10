@@ -1,9 +1,11 @@
 import { render } from "@testing-library/react";
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import App from "../../App";
 import Card from '../Movie/Movie'
 import getAPIData from "../../APICalls";
 import './MovieInfo.css'
+
 
 
 class Movie extends Component { 
@@ -31,16 +33,23 @@ class Movie extends Component {
     const { title, poster_path, runtime, release_date, overview, genres, tagline } = this.state.singleMovie
     return (
       <div className="movieContainer">
-        <img src={poster_path} alt="Movie Poster" width="1000" height="1200"></img>
+        <img className="moviePic" src={poster_path} alt="Movie-Poster"></img>
         <div className="movieInfo">
-          <h1>Title: {title}</h1>
+          <h1 className='title'>WOW {title}</h1>
+          <ul>
           {/* <h2>Avg Rating: {averageRating}</h2> */}
-          <h2>Released: {release_date}</h2>
-          <h2>Summary: {overview}</h2>
-          <h2>Genre: {genres}</h2>
-          <h2>Duration: {runtime} mins</h2>
-          <h2>{tagline}</h2>
-          <button className="homeButton" >Back To Home</button>
+            <h2 className='sum'>{overview}</h2>
+          <h3>Released:</h3>
+            <li>Released: {release_date}</li>
+          <h3>Genre:</h3>
+            <li>{genres}</li>
+          <h3>Duration:</h3>
+            <li> {runtime} mins</li>
+            <h2>{tagline}</h2>
+          </ul>
+          <NavLink to={'/'} className="homeButton">
+            <p>Back to Home</p>
+          </NavLink>
         </div>
       </div>
     )}

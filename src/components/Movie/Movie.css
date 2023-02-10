@@ -1,6 +1,5 @@
 .Card {
-  /* margin: 20px; */
-  margin-left: 10px;
+  margin: 30px 10px 30px 20px;
 }
 
 .homeTitles {
@@ -9,3 +8,4 @@
   margin-top: 5px;
   text-decoration: none;
 }
+
