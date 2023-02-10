@@ -1,6 +1,13 @@
 .movieContainer {
   display: flex;
   flex-direction: row;
+  /* padding-left: 10px; */
+}
+
+.moviePic {
+  /* width: 50vw; */
+  height: 1250px;
+  width: 900px;
 }
 
 .movieInfo {
@@ -14,14 +21,19 @@ h1 {
   text-align: center;
 }
 
-h2 {
+ul {
   margin: 50px;
   text-align: center;
   font-size: 30px;
+  list-style: none;
+}
+
+li {
+  margin: 30px;
 }
 
 .homeButton {
-  margin-left: 500px;
+  margin-left: 435px;
   margin-top: 30px;
   width: 250px;
   height: 70px;
