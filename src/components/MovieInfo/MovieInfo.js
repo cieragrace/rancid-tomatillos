@@ -35,7 +35,7 @@ class Movie extends Component {
       <div className="movieContainer">
         <img className="moviePic" src={poster_path} alt="Movie-Poster"></img>
         <div className="movieInfo">
-          <h1 className='title'>{title}</h1>
+          <h1 className='title'>WOW {title}</h1>
           <ul>
           {/* <h2>Avg Rating: {averageRating}</h2> */}
             <h2 className='sum'>{overview}</h2>
@@ -47,12 +47,9 @@ class Movie extends Component {
             <li> {runtime} mins</li>
             <h2>{tagline}</h2>
           </ul>
-          <NavLink to={'/'} text="Back to Home" className="homeButton">
+          <NavLink to={'/'} className="homeButton">
             <p>Back to Home</p>
           </NavLink>
-          
-            {/* <button className="homeButton" >Back To Home</button> */}
-          {/* </NavLink> */}
         </div>
       </div>
     )}
