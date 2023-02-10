@@ -5,6 +5,7 @@ import Movie from './components/MovieInfo/MovieInfo';
 import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import Header from './components/Header/Header'
+import NotFound from './components/NotFound.js';
 
 
 export default class App extends Component {
@@ -44,6 +45,7 @@ export default class App extends Component {
             <Route exact path='/:id' render={({match})=> <Movie movieId={match.params.id} />
               } 
             ></Route>
+            <Route path="*" Component={NotFound} />
           </Switch>
         </main>
     )
