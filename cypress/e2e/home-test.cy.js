@@ -4,7 +4,7 @@ describe('Main Page', () => {
       cy.visit('http://localhost:3002/')
     })
   
-    it('this should pass', () => {
+    it('should have find a movie:', () => {
         cy.get('div')
           .find('.whereFormWillBe')
           .should('have.text', 'Find A Movie:')
@@ -18,14 +18,6 @@ describe('Main Page', () => {
         cy.get('#findMovie').should('be.visible')
       })
 
-    // it('should have movies', () => {
-    //     cy.get('.movies')
-    //       .find('.movies')
-    //       .should('have.length', 40)
-    // })
-
-
-    
   })
 
 
