@@ -10,13 +10,13 @@ class Form extends Component {
   }
 
   handleSubmit = event => {
-    this.setState({ [event.target.name]: event.target.value})
+    this.setState({ searchBarValue: event.target.value})
   }
 
   getFilteredMovies = ( {movies} ) => {
-    let filteredMovies = movies.filter(movie => {
-      movie.title.includes(this.state.searchBarValue) || movie.title === this.state.searchBarValue
-      console.log("filtered", movie)
+    const filteredMovies = movies.filter(movie => {
+      movie.title.includes(this.state.searchBarValue) 
+      // || movie.title === this.state.searchBarValue
       return filteredMovies
     })
   }
@@ -40,7 +40,7 @@ class Form extends Component {
           {/* <button className="searchButton"></button> */}
         </div>
         <div className="movie-container">
-          {filteredMovies}
+          {/* {filteredMovies} */}
         </div>
       </>
     )
