@@ -1,3 +1,19 @@
 main {
   height: 100vh; 
 }
+.formContainer {
+  background-color: black;
+  padding-left: 520px;
+}
+
+.searchButton {
+  width: 150px;
+  height: 40px;
+  background-color: #744C20;
+}
+
+input {
+  background-color: #C1B677;
+  font-weight: bolder;
+  color: black;
+}

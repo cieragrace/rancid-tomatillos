@@ -36,11 +36,11 @@ class Movie extends Component {
         <img className="moviePic" src={poster_path} alt="Movie-Poster"></img>
         <div className="movieInfo">
           <h1 className='title'>{title}</h1>
-          <ul>
+          <ul className="list">
           {/* <h2>Avg Rating: {averageRating}</h2> */}
             <h2 className='sum'>{overview}</h2>
           <h3>Released:</h3>
-            <li>Released: {release_date}</li>
+            <li>{release_date}</li>
           <h3>Genre:</h3>
             <li>{genres}</li>
           <h3>Duration:</h3>
