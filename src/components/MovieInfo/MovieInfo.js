@@ -1,8 +1,5 @@
-import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import App from "../../App";
-import Card from '../Movie/Movie'
 import getAPIData from "../../APICalls";
 import PropTypes from 'prop-types'
 import './MovieInfo.css'
@@ -14,18 +11,15 @@ class Movie extends Component {
     super(props)
     this.state={
       singleMovie: {}
-      // isClicked: false
     }
   }
   
   componentDidMount () {
   
     getAPIData(`movies/${this.props.movieId}`)
-      // .then(res=> res.json())
       .then(data => {
         this.setState({
-        singleMovie: data.movie,
-        // isClicked: true    
+        singleMovie: data.movie,    
         })
       })
           
@@ -38,7 +32,6 @@ class Movie extends Component {
         <div className="movieInfo">
           <h1 className='title'>{title}</h1>
           <ul className="list">
-          {/* <h2>Avg Rating: {averageRating}</h2> */}
             <h2 className='sum'>{overview}</h2>
           <h3>Released:</h3>
             <li className="released">{release_date}</li>

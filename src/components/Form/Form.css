@@ -1,8 +1,6 @@
 .formContainer {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  /* align-content: center; */
   background-color: black;
   height: 80px;
   padding-top: 15px;
