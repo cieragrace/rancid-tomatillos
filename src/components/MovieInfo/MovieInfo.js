@@ -19,7 +19,7 @@ class Movie extends Component {
   }
   
   componentDidMount () {
-    console.log('what is props = ',this.props)
+  
     getAPIData(`movies/${this.props.movieId}`)
       // .then(res=> res.json())
       .then(data => {

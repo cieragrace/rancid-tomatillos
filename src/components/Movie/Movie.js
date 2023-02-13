@@ -13,7 +13,7 @@ import PropTypes from 'prop-types'
 // }
 
 const Card = (props) => {
-  console.log('props', props)
+  
   return (
     <NavLink to={`/${props.id}`}> 
       <img className="Card" id={props.id} src={props.posterPath} alt="Movie Poster" width="383" height="600"></img>

@@ -1,6 +1,6 @@
 describe('Main Page', () => {
     beforeEach(() => {
-      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies',)
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies',{fixture: cypress/fixtures/homeView.json})
       cy.visit('http://localhost:3000/')
     })
   
