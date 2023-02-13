@@ -5,7 +5,7 @@ describe('Main Page', () => {
     })
   
     it('should have find a movie:', () => {
-        cy.get('div')
+        cy.get('form')
           .find('.whereFormWillBe')
           .should('have.text', 'Find A Movie:')
     })

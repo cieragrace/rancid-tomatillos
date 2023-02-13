@@ -1,5 +1,4 @@
 .movie-container {
-    /* padding: 10px; */
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;

@@ -1,10 +1,6 @@
 main {
   height: 100vh; 
 }
-.formContainer {
-  background-color: black;
-  padding-left: 520px;
-}
 
 .searchButton {
   width: 150px;
