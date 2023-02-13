@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import './Movie.css'
+import PropTypes from 'prop-types'
 
 
 // const Card = ({id, posterPath}) => {
@@ -21,3 +22,8 @@ const Card = (props) => {
 }
 
 export default Card
+
+Card.propTypes = {
+  id: PropTypes.number,
+  posterPath: PropTypes.string,
+}
