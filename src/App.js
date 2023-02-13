@@ -3,7 +3,8 @@ import getAPIData from './APICalls.js'
 import Movies from './components/Movies/Movies';
 import Movie from './components/MovieInfo/MovieInfo';
 import Form from './components/Form/Form.js';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import PropTypes  from 'prop-types';
 // import { NavLink } from 'react-router-dom'
 // import { BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import './App.css';
@@ -81,11 +82,13 @@ export default class App extends Component {
             onChange={event => this.handleSearchBar}
             />
           </Form>
-          <Route exact path='/' render={()=> <Movies movies={this.state.movies}/>}></Route> 
-          <Route exact path='/:id' render={({match})=> <Movie movieId={match.params.id} />
-            } 
-          ></Route>
-          <Route path="*"><NotFound /></Route>
+          <Switch>
+            <Route exact path='/' render={()=> <Movies movies={this.state.movies}/>}></Route> 
+            <Route exact path='/:id' render={({match})=> <Movie movieId={match.params.id} />
+              } 
+            ></Route>
+            <Route path="*"><NotFound /></Route>
+          </Switch>
         </main>
     )
   }
