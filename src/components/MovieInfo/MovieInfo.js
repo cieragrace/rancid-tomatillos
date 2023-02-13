@@ -40,12 +40,12 @@ class Movie extends Component {
           {/* <h2>Avg Rating: {averageRating}</h2> */}
             <h2 className='sum'>{overview}</h2>
           <h3>Released:</h3>
-            <li>{release_date}</li>
+            <li className="released">{release_date}</li>
           <h3>Genre:</h3>
-            <li>{genres}</li>
+            <li className="genre">{genres}</li>
           <h3>Duration:</h3>
-            <li> {runtime} mins</li>
-            <h2>{tagline}</h2>
+            <li className="duration"> {runtime} mins</li>
+            <h2 className="tagLine">{tagline}</h2>
           </ul>
           <NavLink to={'/'} className="homeButton">
             <p>Back to Home</p>
