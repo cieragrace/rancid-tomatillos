@@ -9,6 +9,9 @@ describe('Single Movie', () => {
     cy.url().should("include", "movies")
   })
 
+  it('should load a container to hold the movies image and information',() => {
+    cy.get('.movieContainer')
+  })
   it('should have a img', () => {
     cy.get('.moviePic')
   })
