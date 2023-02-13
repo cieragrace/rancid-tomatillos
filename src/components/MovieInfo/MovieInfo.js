@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import App from "../../App";
 import Card from '../Movie/Movie'
 import getAPIData from "../../APICalls";
+import PropTypes from 'prop-types'
 import './MovieInfo.css'
 
 
@@ -18,7 +19,7 @@ class Movie extends Component {
   }
   
   componentDidMount () {
-    console.log('what is props = ',this.props)
+  
     getAPIData(`movies/${this.props.movieId}`)
       // .then(res=> res.json())
       .then(data => {
@@ -57,3 +58,14 @@ class Movie extends Component {
 }
 
 export default Movie
+
+Movie.propTypes = {
+  title: PropTypes.string,
+  poster_path: PropTypes.string, 
+  runtime: PropTypes.number,
+  release_date: PropTypes.string,
+  overview: PropTypes.string,
+  genres: PropTypes.string,
+  tagline: PropTypes.string,
+  movieId: PropTypes.number,
+}

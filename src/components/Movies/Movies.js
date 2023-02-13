@@ -5,7 +5,7 @@ import Header from '../Header/Header'
 import Form from "../Form/Form";
 import getFilteredMovies from '../Form/Form'
 import './Movies.css'
-
+import PropTypes from 'prop-types'
 
     const Movies = (props) => {
       const movieCards = props.movies.map(movie => {
@@ -35,3 +35,13 @@ import './Movies.css'
     
 
 export default Movies
+
+Movies.propTypes = {
+  id: PropTypes.number,
+  key: PropTypes.number,
+  posterPath: PropTypes.string,
+  backdropPath: PropTypes.string,
+  title: PropTypes.string,
+  averageRating: PropTypes.string,
+  releaseDate: PropTypes.string,
+}

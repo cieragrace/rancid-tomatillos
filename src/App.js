@@ -3,7 +3,7 @@ import getAPIData from './APICalls.js'
 import Movies from './components/Movies/Movies';
 import Movie from './components/MovieInfo/MovieInfo';
 import Form from './components/Form/Form.js';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 // import { NavLink } from 'react-router-dom'
 // import { BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import './App.css';
@@ -29,15 +29,30 @@ export default class App extends Component {
     .catch((error) => console.log(error))
   }
 
-  // searchBar = (event) => {
-  //   this.setState({searchBarValue: event.target.value})
-  // }
+  componentDidUpdate = (prevState) => {
+    if(prevState.movies !== this.state.movies || prevState.searchBarValue !== this.state.searchBarValue){
+      return this.filterMovies
+    }
+  }
+
+  searchBar = (event) => {
+    this.setState({searchBarValue: event.target.value})
+  }
 
   // handleSearch = (event) => {
   //   setquery(event.target.value)
   // }
   clearInputs = () => {
     this.setState({searchBarValue: ""})
+  }
+  filterMovies = (id) => {
+    const searchedMovies = this.state.movies.filter(movie => 
+      movie.title.toLowerCase()
+        .includes(this.state.searchBarValue.toLowerCase()))
+      this.setState({
+        filteredMovies: searchedMovies
+      })
+  
   }
 
   showSingleMovie = (id) => {
@@ -58,20 +73,20 @@ export default class App extends Component {
   //   }
   // }
 
-  filterMovies = () => {
-    const searchedMovies = this.state.movies.filter(movie => movie.title.includes(this.state.searchBarValue))
-    getAPIData(`movies/${searchedMovies.id}`)
-    .then((data) => {
-      this.setState({
-        filteredMovies: data.movie
-      })
-    })
-  }
+  // filterMovies = (props) => {
+  //   const searchedMovies = this.state.movies.filter(movie => movie.title.includes(this.state.searchBarValue))
+  //   getAPIData(`movies/${searchedMovies.id}`)
+  //   .then((data) => {
+  //     this.setState({
+  //       filteredMovies: data.movie
+  //     })
+  //   })
+  // }
  
   render() {
     return(
         <main>
-          <Form >
+          {/* <Form >
           <label htmlFor='findMovie'>Find A Movie:</label>
           <input 
             type='text'
@@ -80,12 +95,15 @@ export default class App extends Component {
             value={this.state.searchBarValue}
             onChange={event => this.handleSearchBar}
             />
-          </Form>
-          <Route exact path='/' render={()=> <Movies movies={this.state.movies}/>}></Route> 
-          <Route exact path='/:id' render={({match})=> <Movie movieId={match.params.id} />
-            } 
-          ></Route>
-          <Route path="*"><NotFound /></Route>
+          </Form> */}
+          <Form />
+          <Switch>
+            <Route exact path='/' render={()=> <Movies movies={this.state.movies}/>}></Route> 
+            <Route exact path='/:id' render={({match})=> <Movie movieId={match.params.id} />
+              } 
+            ></Route>
+            <Route path="*"><NotFound /></Route>
+          </Switch>
         </main>
     )
   }
