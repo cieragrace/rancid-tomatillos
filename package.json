@@ -5,8 +5,7 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cieragrace/rancid-tomatillos",
-    "homepage": "https://cieragrace.github.io/"
+    "homepage": "http://cieragrace.github.io/rancid-tomatillos"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
