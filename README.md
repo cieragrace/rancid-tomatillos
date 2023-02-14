@@ -14,6 +14,9 @@ Here we have built a app that will display a wide variety of movies. The users h
 8. You will also need to clone down the API server. Go to [API repo] (https://rancid-tomatillos.herokuapp.com/api/v2.) and follow the install steps, this will allow you to manipulate the application in the browser window
 
 ### Preview of the App
+<img width="727" alt="image" src="https://user-images.githubusercontent.com/113853138/218605714-2963f2d2-8fc2-4526-a32d-d2bed21a5abc.png">
+<img width="727" alt="image" src="https://user-images.githubusercontent.com/113853138/218605760-ac448e54-dd3e-4bc6-a794-1847683c4d5a.png">
+
 
 
 ### Context:
