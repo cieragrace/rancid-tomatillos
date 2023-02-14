@@ -1,7 +1,13 @@
 {
   "name": "ranci-tomatillos",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cieragrace/rancid-tomatillos",
+    "homepage": "https://cieragrace.github.io/"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -18,7 +24,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +47,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^12.5.1"
+    "cypress": "^12.5.1",
+    "gh-pages": "^5.0.0"
   }
 }
