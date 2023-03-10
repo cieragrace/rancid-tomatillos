@@ -1,7 +1,7 @@
 # Rotten Tomatillos
 
 ### Abstract - what we did
-Here we have built a app that will display a wide variety of movies. The users have the ability to search or scroll through a variety of movies that are pulled from a RESTful API. For each one they can select it to see it's information. Our app is colorblind and dyslexic friendly. We also have 96 percent accessability through lighthouse. 
+We have developed an application that showcases a diverse collection of movies, which users can browse through by either searching or scrolling. The movies are sourced from a RESTful API, and users can select any movie to view its details. Our app is designed to be user-friendly for individuals with colorblindness and dyslexia. Additionally, we have achieved a 96% accessibility score on Lighthouse.
 
 ### Installation Instructions
 1. Go to [this repo] (https://github.com/Mortis78/rancid-tomatillos) on Github
