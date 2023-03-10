@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "main": "src/index.js",
-  "homepage": ".",
+  "homepage": "https://cieragrace.github.io/rancid-tomatillos",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
